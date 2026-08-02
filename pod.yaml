@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: go-build
+spec:
+  serviceAccountName: code-artifact-sa
+  containers:
+    - name: go-build
+      image: golang:1.26.0
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: home-jenkins
+          mountPath: /home/jenkins/
+      resources:
+        limits:
+          memory: "2Gi"
+          cpu: "1000m"
+    - name: buildkit
+      image: moby/buildkit:v0.15.0
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: home-jenkins
+          mountPath: /home/jenkins/
+        - name: buildkit-secret
+          mountPath: /root/.docker
+        - name: certs
+          mountPath: /certs
+  volumes:
+    - name: home-jenkins
+      emptyDir: {}
+    - name: buildkit-secret
+      secret:
+        secretName: ecr-cred
+        items:
+          - key: .dockerconfigjson
+            path: config.json
+    - name: certs
+      secret:
+        secretName: buildkit-client-certs

@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: msdemo-frontend
   template:
-    metadate:
+    metadata:
       labels:
         app: msdemo-frontend
     spec:
@@ -53,11 +53,11 @@ spec:
               port: 8080
             initialDelaySeconds: 30
             periodSeconds: 10
-            failureThreashold: 3
+            failureThreshold: 3
           readinessProbe:
             httpGet:
               path: /
               port: 8080
             initialDelaySeconds: 30
             periodSeconds: 10
-            failureThreashold: 3
+            failureThreshold: 3

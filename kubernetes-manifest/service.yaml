@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: msdemo-frontend-service
+  labels:
+    app: msdemo-frontend
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app: msdemo-frontend
+  type: ClusterIP

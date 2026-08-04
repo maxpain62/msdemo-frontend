@@ -23,21 +23,21 @@ spec:
             - name: PORT
               value: "8080"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
-              value: "msdemo-productcatalogservice:3550"
+              value: "msdemo-productcatalogservice-service:3550"
             - name: CURRENCY_SERVICE_ADDR
-              value: "msdemo-currencyservice:7000"
+              value: "msdemo-currencyservice-service:7000"
             - name: CART_SERVICE_ADDR
-              value: "msdemo-cartservice:7070"
+              value: "msdemo-cartservice-service:7070"
             - name: RECOMMENDATION_SERVICE_ADDR
-              value: "msdemo-recommendationservice:8080"
+              value: "msdemo-recommendationservice-service:8080"
             - name: SHIPPING_SERVICE_ADDR
-              value: "msdemo-shippingservice:50051"
+              value: "msdemo-shippingservice-service:50051"
             - name: CHECKOUT_SERVICE_ADDR
-              value: "msdemo-checkoutservice:5050"
+              value: "msdemo-checkoutservice-service:5050"
             - name: AD_SERVICE_ADDR
               value: "msdemo-adservice:9555"
             - name: SHOPPING_ASSISTANT_SERVICE_ADDR
-              value: "msdemo-shoppingassistantservice:80"
+              value: "msdemo-shoppingassistantservice-service:80"
             - name: ENABLE_PROFILER
               value: "0"
           resources:
